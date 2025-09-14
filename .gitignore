@@ -1,0 +1,49 @@
+# Large dataset files
+creditcard.csv
+
+# Python cache files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Environment files
+.env
+.venv
+env/
+venv/
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Output files
+*.log
+
+# Data files (exclude large datasets)
+creditcard.csv
+*.xlsx
+*.xls
+*.parquet
+*.h5
+*.hdf5
+
+# Generated output images (keep assignment PDFs)
+output_*.png
+output_*.jpg
+output_*.jpeg
+output_*.gif
+output_*.svg
