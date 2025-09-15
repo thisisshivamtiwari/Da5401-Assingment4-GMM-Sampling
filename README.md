@@ -1,151 +1,200 @@
-# GMM-Based Fraud Detection Assignment
-## DA5401 A4: Enhanced Synthetic Sampling for Imbalanced Data
+# DA5401 A4: GMM-Based Synthetic Sampling for Imbalanced Data
 
-### 🎯 **Project Overview**
+<div align="center">
+  <img src="https://img.shields.io/badge/Python-3.8+-blue.svg" alt="Python Version">
+  <img src="https://img.shields.io/badge/Jupyter-Notebook-orange.svg" alt="Jupyter">
+  <img src="https://img.shields.io/badge/Status-Complete-green.svg" alt="Status">
+</div>
 
-This project implements an advanced **Gaussian Mixture Model (GMM)-based synthetic sampling** approach for handling extremely imbalanced fraud detection data. The assignment demonstrates sophisticated machine learning techniques including clustering-based undersampling, BIC optimization, and comprehensive cross-validation analysis.
+## Student Information
 
-### 📊 **Key Features**
+| Field | Details |
+|-------|---------|
+| Name | Shivam Tiwari |
+| Roll Number | DA25C019 |
+| Course | DA5401 - Advanced Data Analytics |
+| Assignment | Assignment 4: GMM-Based Synthetic Sampling for Imbalanced Data |
+| Topic | GMM and Clustering-Based Sampling for Credit Card Fraud Detection |
+| Submission Date | September 2025 |
+| Notebook Cells | 40+ comprehensive cells with advanced methodology |
 
-- **GMM-Based Synthetic Oversampling**: Probabilistic generation of realistic minority class samples
-- **Clustering-Based Undersampling (CBU)**: Intelligent majority class reduction preserving data structure  
-- **BIC Optimization**: Automatic selection of optimal GMM components
-- **5-Fold Cross-Validation**: Robust performance evaluation with statistical significance testing
-- **Comprehensive Documentation**: Detailed code comments and academic-quality analysis
+---
 
-### 🛠 **Enhanced Implementation**
+## Project Overview
 
-This assignment has been upgraded with:
-- ✅ **Cross-validation analysis** (+2% grade recovery)
-- ✅ **Detailed code documentation** (+3% grade recovery) 
-- ✅ **Statistical significance testing** with confidence intervals
-- ✅ **Professional visualization** of performance distributions
-- ✅ **Academic-quality presentation** suitable for A+ grade
+This assignment addresses the challenge of fraud detection in highly imbalanced datasets using advanced synthetic sampling and clustering techniques. The project implements and compares three approaches for handling the extreme class imbalance in credit card transactions:
 
-### 📁 **Project Structure**
+### Objective
+
+Compare the performance of Logistic Regression classifiers trained on three different training sets:
+1. Baseline: Original imbalanced data
+2. GMM-only: Synthetic minority oversampling using Gaussian Mixture Model
+3. GMM + CBU: Combined GMM-based oversampling and clustering-based undersampling
+
+---
+
+## Project Structure & Essential Files
 
 ```
 Da5401-Assingment4-GMM-Sampling/
 ├── Assignment4_DA5401_final.ipynb    # Main Jupyter notebook
-├── DA5401 A4 GMM.pdf                 # Assignment documentation  
-├── README.md                         # This file
-├── requirements.txt                  # Python dependencies
+├── README.md                         # Project documentation
 └── .gitignore                        # Git ignore rules
 ```
 
-### 📦 **Dataset**
+### Key Files for Evaluation
 
-**⚠️ Important**: The `creditcard.csv` dataset (143.84 MB) is not included in this repository due to GitHub's file size limits.
-
-**To get the dataset:**
-
-1. **Download from Kaggle**: [Credit Card Fraud Detection Dataset](https://www.kaggle.com/datasets/mlg-ulb/creditcardfraud)
-2. **Alternative**: Download from [UCI ML Repository](https://archive.ics.uci.edu/ml/datasets/default+of+credit+card+clients)
-3. **Place the file**: Save as `creditcard.csv` in the project root directory
-
-**Dataset Info:**
-- **Size**: 284,807 transactions
-- **Features**: 30 (V1-V28 PCA components, Time, Amount)
-- **Target**: Class (0=Normal, 1=Fraud)
-- **Imbalance**: 577:1 ratio (99.83% normal, 0.17% fraud)
-
-### 🚀 **Getting Started**
-
-#### 1. **Prerequisites**
-```bash
-# Python 3.8+ required
-python --version
-
-# Install dependencies
-pip install -r requirements.txt
-```
-
-#### 2. **Setup**
-```bash
-# Clone the repository
-git clone https://github.com/thisisshivamtiwari/Da5401-Assingment4-GMM-Sampling.git
-cd Da5401-Assingment4-GMM-Sampling
-
-# Download and place creditcard.csv (see Dataset section above)
-# Verify file is present
-ls -la creditcard.csv
-```
-
-#### 3. **Run the Analysis**
-```bash
-# Launch Jupyter Notebook
-jupyter notebook Assignment4_DA5401_final.ipynb
-
-# Or run all cells programmatically
-jupyter nbconvert --execute Assignment4_DA5401_final.ipynb
-```
-
-### 🔬 **Methodology**
-
-#### **1. Baseline Model**
-- Logistic Regression on original imbalanced data
-- Performance: Precision 86.6%, Recall 63.7%, F1 73.5%
-
-#### **2. GMM-Based Oversampling**
-- BIC optimization selects k=5 components
-- Generates realistic synthetic fraud samples
-- Achieves perfect class balance (1:1 ratio)
-
-#### **3. Clustering-Based Undersampling**
-- K-means clustering of majority class (k=3)
-- Proportional sampling preserves data structure
-- Reduces majority class by 95% while maintaining diversity
-
-#### **4. Combined Approach (GMM + CBU)**
-- Optimal balance between synthetic generation and intelligent undersampling
-- Best trade-off between recall and model stability
-
-### 📈 **Results Summary**
-
-| Approach | Precision | Recall | F1-Score | ROC-AUC |
-|----------|-----------|---------|----------|---------|
-| **Baseline** | 86.6% (±3.7%) | 63.7% (±3.1%) | 73.5% (±3.1%) | 98.0% (±1.0%) |
-| **GMM-only** | 98.5% (±0.03%) | 94.3% (±0.06%) | 96.4% (±0.02%) | 98.4% (±0.04%) |
-| **GMM+CBU** | 97.9% (±0.7%) | 92.7% (±1.5%) | 95.2% (±0.9%) | 98.1% (±0.5%) |
-
-**Key Findings:**
-- GMM approaches significantly outperform baseline (p < 0.001)
-- 30-40% improvement in minority class recall
-- Cross-validation confirms results are robust and generalizable
-- Combined approach provides best practical balance
-
-### 🔧 **Technical Requirements**
-
-- **Python**: 3.8+
-- **Core Libraries**: pandas, numpy, scikit-learn, matplotlib, seaborn
-- **Statistical**: scipy
-- **Jupyter**: notebook, nbconvert
-- **Memory**: 4GB+ RAM recommended for large dataset
-
-### 🎓 **Academic Quality**
-
-This assignment demonstrates:
-- **Advanced ML Techniques**: GMM, clustering, cross-validation
-- **Statistical Rigor**: Significance testing, confidence intervals
-- **Professional Documentation**: Comprehensive comments, clear methodology
-- **Reproducible Research**: Seeded random operations, detailed instructions
-
-**Grade Enhancement:**
-- Original: A (90-95%)
-- Enhanced: A+ (95-100%) with cross-validation and documentation improvements
-
-### 👨‍💻 **Author**
-
-**Shivam Tiwari**
-- Course: DA5401 
-- Assignment: 4
-- Topic: GMM-Based Synthetic Sampling for Imbalanced Data
-- Enhancement: Cross-validation + Documentation
-
-### 📄 **License**
-
-This project is for academic purposes only. Dataset credit to original publishers.
+| Priority | File Name | Description | Assignment Relevance |
+|----------|-----------|-------------|---------------------|
+| Main | Assignment4_DA5401_final.ipynb | Main deliverable - advanced analysis | Assignment compliance |
+| Dataset | creditcard.csv | Kaggle credit card fraud dataset (not included, see instructions) | Required dataset |
+| Documentation | README.md | Project documentation | Professional presentation |
+| PDF | DA5401 A4 GMM.pdf | Assignment report | Reference |
 
 ---
 
-**🌟 Ready to explore advanced fraud detection techniques? Start with downloading the dataset and running the notebook!**
+## Assignment Implementation: Analysis Pipeline
+
+### Part A: Data Exploration and Baseline Model
+
+- Loads and analyzes the creditcard.csv dataset (284,807 transactions)
+- Examines class distribution and imbalance ratio (577:1)
+- Trains baseline Logistic Regression on imbalanced data
+- Evaluates using precision, recall, F1-score, and confusion matrix
+
+### Part B: GMM-Based Synthetic Sampling
+
+- Isolates minority class and applies feature scaling
+- Uses Bayesian Information Criterion (BIC) to select optimal GMM components
+- Fits GMM to minority class and generates synthetic samples
+- Combines synthetic and original minority samples for balanced training
+
+### Part C: Clustering-Based Undersampling (CBU)
+
+- Applies KMeans clustering to majority class
+- Uses elbow method to select optimal clusters
+- Proportionally samples from each cluster to reduce majority class size
+- Combines undersampled majority and augmented minority for final balanced dataset
+
+### Part D: Model Training, Cross-Validation, and Evaluation
+
+- Trains Logistic Regression on all three datasets
+- Implements 5-fold stratified cross-validation for robust evaluation
+- Performs statistical significance testing and calculates confidence intervals
+- Compares models using precision, recall, F1-score, and ROC-AUC
+
+---
+
+## Key Findings & Results
+
+### Performance Comparison: Minority Class Metrics
+
+| Model      | Precision | Recall | F1-Score | ROC-AUC |
+|------------|-----------|--------|----------|---------|
+| Baseline   | 0.866     | 0.637  | 0.734    | 0.980   |
+| GMM-only   | 0.985     | 0.943  | 0.964    | 0.984   |
+| GMM + CBU  | 0.979     | 0.927  | 0.952    | 0.981   |
+
+- GMM-based approaches significantly outperform baseline in recall and F1-score
+- Cross-validation confirms results are robust and generalizable
+- Combined GMM + CBU approach provides best balance between recall and model stability
+
+---
+
+## Technical Implementation Details
+
+### Dataset Characteristics
+
+| Attribute | Value | Impact |
+|-----------|-------|--------|
+| Total Transactions | 284,807 | Large-scale real-world dataset |
+| Fraud Cases | 492 (0.17%) | Extreme class imbalance |
+| Normal Cases | 284,315 (99.83%) | Majority class dominance |
+| Features | 30 (V1-V28 PCA + Time + Amount) | Pre-processed for ML |
+| Imbalance Ratio | 577:1 | Requires advanced sampling |
+
+### Sampling and Modeling Strategy
+
+- GMM-based synthetic sampling for minority class
+- Clustering-based undersampling for majority class
+- BIC optimization for GMM component selection
+- KMeans clustering for majority class structure preservation
+- Stratified cross-validation for robust model evaluation
+
+---
+
+## Getting Started
+
+### Prerequisites & Environment Setup
+
+```bash
+# Python >= 3.8
+# Jupyter Notebook >= 6.0
+
+# Required Libraries
+pandas >= 1.3.0
+numpy >= 1.21.0
+matplotlib >= 3.4.0
+seaborn >= 0.11.0
+scikit-learn >= 1.0.0
+scipy >= 1.7.0
+jupyter >= 1.0.0
+notebook >= 6.4.0
+nbconvert >= 6.0.0
+```
+
+### Quick Start Guide
+
+1. Download `creditcard.csv` from Kaggle and place in project directory
+2. Open `Assignment4_DA5401_final.ipynb` in Jupyter
+3. Run all cells sequentially
+4. Review outputs and analysis
+
+### Installation Commands
+
+```bash
+pip install -r requirements.txt
+jupyter notebook Assignment4_DA5401_final.ipynb
+```
+
+### Dataset Requirements
+
+- File: `creditcard.csv` (download from Kaggle)
+- Size: ~143 MB (not included in repo)
+- Placement: Project root directory
+
+---
+
+## Assignment Compliance & Quality Assurance
+
+| Part | Requirement | Implementation | Status |
+|------|-------------|----------------|--------|
+| Data Analysis | Load & analyze dataset | Complete | Yes |
+| Baseline Model | Train & evaluate | Complete | Yes |
+| GMM Sampling | Synthetic minority generation | Complete | Yes |
+| Clustering | Majority class undersampling | Complete | Yes |
+| Cross-Validation | Robust model evaluation | Complete | Yes |
+| Statistical Analysis | Significance testing | Complete | Yes |
+| Documentation | Professional comments & README | Complete | Yes |
+
+---
+
+## Conclusions & Academic Impact
+
+- GMM-based synthetic sampling and clustering-based undersampling provide a robust solution for imbalanced fraud detection
+- Cross-validation and statistical analysis confirm the reliability of results
+- The combined approach is recommended for practical deployment in fraud detection systems
+
+---
+
+## Contact & Academic Information
+
+Student: Shivam Tiwari  
+Roll Number: DA25C019  
+Course: DA5401 - Advanced Data Analytics  
+Institution: Indian Institute of Technology Madras  
+Assignment: A4 - GMM-Based Synthetic Sampling for Imbalanced Data
+
+---
+
+This notebook demonstrates advanced synthetic sampling and clustering techniques for imbalanced datasets, combining theoretical understanding with practical implementation and professional documentation.
